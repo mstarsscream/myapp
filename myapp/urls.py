@@ -1,10 +1,11 @@
 # mysite/urls.py
-
+import allauth
 from django.conf.urls import include, url
 from django.contrib import admin
 from login.views import *
 from django.contrib.auth import views
 urlpatterns =[
+	url(r'^accounts/', include('allauth.urls')),
     url(r'^$', views.login, name='login'),
     url(r'^logout/$', logout_page),
     #url(r'^accounts/login/$', views.login, name='login2'), # If user is not login it will redirect to login page
